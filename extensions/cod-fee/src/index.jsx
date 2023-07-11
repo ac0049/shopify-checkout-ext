@@ -27,27 +27,39 @@ function App() {
   useEffect(async () => {
     if(paymentOptions[0].type == "paymentOnDelivery") {
       if(cartLines.filter((line) => line.merchandise.id == feeId).length == 0) {
-        await addProductLine({
-          type: 'addCartLine',
-          merchandiseId: feeId,
-          quantity: 1
-        });
+        try {
+          await addProductLine({
+            type: 'addCartLine',
+            merchandiseId: feeId,
+            quantity: 1
+          });
+        } catch (error) {
+          console.error(error);
+        }
       } else {
         const feedLineItem = cartLines.filter((line) => line.merchandise.id == feeId);
-        await addProductLine({
-          type: 'removeCartLine',
-          id: feedLineItem.id,
-          quantity: 1
-        });
+        try {
+          await addProductLine({
+            type: 'removeCartLine',
+            id: feedLineItem.id,
+            quantity: 1
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
     } else {
       if(cartLines.filter((line) => line.merchandise.id == feeId).length != 0) {
         const feedLineItem = cartLines.filter((line) => line.merchandise.id == feeId)[0];
-        await addProductLine({
-          type: 'removeCartLine',
-          id: feedLineItem.id,
-          quantity: 1
-        });
+        try {
+          await addProductLine({
+            type: 'removeCartLine',
+            id: feedLineItem.id,
+            quantity: 1
+          });
+        } catch (error) {
+          console.log(error);
+        }        
       }
     }
   });
