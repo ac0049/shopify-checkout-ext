@@ -1,5 +1,6 @@
 # Environment Configuration
-.env
+#.env
+.vscode/
 .env.*
 
 # Dependency directory

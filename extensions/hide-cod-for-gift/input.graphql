@@ -1,0 +1,22 @@
+query Input {
+  cart {
+    lines {
+      merchandise {
+        ... on ProductVariant{
+          product {
+            isGiftCard
+          }
+        }
+      }
+    }
+  }
+  localization {
+    country {
+      isoCode
+    }
+  }
+  paymentMethods {
+    id
+    name
+  }
+}
