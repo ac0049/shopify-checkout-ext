@@ -17,7 +17,7 @@ function App() {
   const cartLines = useCartLines();
   const country = useLocalizationCountry();
   let feeId = "";
-  if(country.isoCode == "SL")
+  if(country.isoCode == "SI")
     feeId = fee_product_sl;
   else if(country.isoCode == "IT")
     feeId = fee_product_it;

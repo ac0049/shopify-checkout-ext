@@ -19,7 +19,8 @@ export default /**
   (input) => {
     const cartLines = input.cart.lines,
           countryCode = input.localization.country.isoCode,
-          availableCountries = ['SL','IT','HR'];
+          availableCountries = ['SI','IT','HR'];
+    console.log('countrycode', countryCode);
     const isGift = cartLines.filter(line => line.merchandise.product.isGiftCard).length;
 
     const hidePaymentMethod = input.paymentMethods
