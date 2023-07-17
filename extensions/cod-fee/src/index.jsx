@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {
   render,
-  Banner,
+  useSettings,
   useApplyCartLinesChange,
   useSelectedPaymentOptions,
   useCartLines,
@@ -11,19 +11,19 @@ import {
 render('Checkout::Dynamic::Render', () => <App />);
 
 function App() {
-  const cartLines = useCartLines(),
-        addProductLine = useApplyCartLinesChange(),
-        country = useLocalizationCountry();
+  const {fee_product_sl, fee_product_it, fee_product_hr} = useSettings();
+  const addProductLine = useApplyCartLinesChange();
   const paymentOptions = useSelectedPaymentOptions();
-  let feeId = "gid://shopify/ProductVariant/";
+  const cartLines = useCartLines();
+  const country = useLocalizationCountry();
+  let feeId = "";
   if(country.isoCode == "SL")
-    feeId += "45546242736423"
+    feeId = fee_product_sl;
   else if(country.isoCode == "IT")
-    feeId += "45546242769191"
+    feeId = fee_product_it;
   else {
-    feeId += "45546242801959"
+    feeId = fee_product_hr;
   }
-
   useEffect(async () => {
     if(paymentOptions[0].type == "paymentOnDelivery") {
       if(cartLines.filter((line) => line.merchandise.id == feeId).length == 0) {
