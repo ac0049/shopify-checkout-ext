@@ -9,6 +9,15 @@ query Input {
         }
       }
     }
+    deliveryGroups {
+      deliveryOptions {
+        handle
+        title
+      }
+      selectedDeliveryOption {
+        title
+      }
+    }
   }
   localization {
     country {

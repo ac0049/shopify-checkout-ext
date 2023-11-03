@@ -1,8 +1,8 @@
 type = "checkout_ui_extension"
-name = "show-discounted-price"
+name = "discounted-price"
 
 extension_points = [
-  'Checkout::CartLineDetails::RenderAfter'
+  'Checkout::CartLineDetails::RenderLineComponents'
 ]
 
 # [[metafields]]
@@ -20,6 +20,3 @@ extension_points = [
 #   type = "single_line_text_field"
 #   name = "Banner title"
 #   description = "Enter a title for the banner"
-
-[capabilities]
-api_access = true

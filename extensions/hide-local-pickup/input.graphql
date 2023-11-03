@@ -1,0 +1,22 @@
+query Input {
+  cart {
+    deliveryGroups {
+      deliveryAddress {
+        provinceCode
+      }
+      deliveryOptions {
+        handle
+        title
+        deliveryMethodType
+      }
+    }
+  }
+  localization {
+    language {
+      isoCode
+    }
+    country {
+      isoCode
+    }
+  }
+}

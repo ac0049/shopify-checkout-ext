@@ -20,6 +20,7 @@ export default /**
     const cartLines = input.cart.lines,
           countryCode = input.localization.country.isoCode,
           availableCountries = ['SI','IT','HR'];
+    console.log('delivery', input.cart.deliveryGroups);
     console.log('countrycode', countryCode);
     const isGift = cartLines.filter(line => line.merchandise.product.isGiftCard).length;
 

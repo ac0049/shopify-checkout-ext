@@ -3,11 +3,12 @@ import {
   render
 } from '@shopify/checkout-ui-extensions-react';
 
-render('Checkout::Dynamic::Render', () => <App />);
+render('Checkout::CartLineDetails::RenderAfter', () => <App />);
 
 function App() {
   return (
     <>
+      test
     </>
   );
 }
